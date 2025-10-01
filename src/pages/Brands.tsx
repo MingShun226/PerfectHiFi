@@ -39,11 +39,12 @@ const Brands = () => {
     {
       id: 1,
       name: "Sonus Faber",
+      slug: "sonus-faber",
       country: "Italy",
       founded: 1983,
       category: "Speakers",
       logo: "/placeholder.svg",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop",
       description: "Italian manufacturer of high-end audio systems including loudspeakers, headphones, and other audio accessories.",
       specialties: ["Bookshelf Speakers", "Floorstanding Speakers", "Center Channels"],
       priceRange: "Premium",
@@ -55,11 +56,12 @@ const Brands = () => {
     {
       id: 2,
       name: "KEF",
+      slug: "kef",
       country: "United Kingdom",
       founded: 1961,
       category: "Speakers",
       logo: "/placeholder.svg",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=300&h=200&fit=crop",
       description: "British loudspeaker manufacturer known for innovative driver technology and acoustic research.",
       specialties: ["UniQ Driver Technology", "Wireless Speakers", "Home Theater"],
       priceRange: "Mid to Premium",
@@ -71,11 +73,12 @@ const Brands = () => {
     {
       id: 3,
       name: "McIntosh",
+      slug: "mcintosh",
       country: "United States",
       founded: 1949,
       category: "Amplifiers",
       logo: "/placeholder.svg",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=200&fit=crop",
       description: "American manufacturer of high-end audio equipment known for their distinctive blue meters and exceptional build quality.",
       specialties: ["Tube Amplifiers", "Solid State Amplifiers", "Pre-amplifiers"],
       priceRange: "Ultra Premium",
@@ -87,11 +90,12 @@ const Brands = () => {
     {
       id: 4,
       name: "Cambridge Audio",
+      slug: "cambridge-audio",
       country: "United Kingdom",
       founded: 1968,
       category: "Amplifiers",
       logo: "/placeholder.svg",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=300&h=200&fit=crop",
       description: "British audio company focused on creating high-quality, affordable audio equipment with exceptional engineering.",
       specialties: ["Integrated Amplifiers", "Network Players", "CD Players"],
       priceRange: "Entry to Mid",
@@ -103,11 +107,12 @@ const Brands = () => {
     {
       id: 5,
       name: "Audio Research",
+      slug: "audio-research",
       country: "United States",
       founded: 1970,
       category: "Amplifiers",
       logo: "/placeholder.svg",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1574666908499-2a2c8b04e7d0?w=300&h=200&fit=crop",
       description: "Pioneer in high-end tube audio equipment, known for their reference-level preamplifiers and power amplifiers.",
       specialties: ["Tube Preamplifiers", "Tube Power Amplifiers", "Reference Systems"],
       priceRange: "Ultra Premium",
@@ -119,11 +124,12 @@ const Brands = () => {
     {
       id: 6,
       name: "Bowers & Wilkins",
+      slug: "bowers-wilkins",
       country: "United Kingdom",
       founded: 1966,
       category: "Speakers",
       logo: "/placeholder.svg",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1589003077984-894e133dabab?w=300&h=200&fit=crop",
       description: "British premium audio company known for their diamond tweeters and innovative cabinet designs.",
       specialties: ["Diamond Dome Tweeters", "Studio Monitors", "Wireless Speakers"],
       priceRange: "Premium to Ultra Premium",
@@ -135,11 +141,12 @@ const Brands = () => {
     {
       id: 7,
       name: "Rega",
+      slug: "rega",
       country: "United Kingdom",
       founded: 1973,
       category: "Turntables",
       logo: "/placeholder.svg",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1574666908764-c61ccd0ca095?w=300&h=200&fit=crop",
       description: "British manufacturer specializing in turntables, tonearms, and cartridges with minimal, functional design philosophy.",
       specialties: ["Turntables", "Tonearms", "Cartridges"],
       priceRange: "Entry to Premium",
@@ -151,11 +158,12 @@ const Brands = () => {
     {
       id: 8,
       name: "Focal",
+      slug: "focal",
       country: "France",
       founded: 1979,
       category: "Speakers",
       logo: "/placeholder.svg",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=300&h=200&fit=crop",
       description: "French manufacturer of high-fidelity audio systems and professional studio monitors with distinctive design.",
       specialties: ["Beryllium Tweeters", "Studio Monitors", "Car Audio"],
       priceRange: "Mid to Ultra Premium",
@@ -196,101 +204,6 @@ const Brands = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-
-      {/* Hero Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-card/80" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <Badge className="mb-4 bg-primary/10 text-primary">Premium Audio Brands</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
-              World-Class Audio Brands
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-              Discover our carefully curated collection of premium audio brands, each chosen for
-              their exceptional quality, innovation, and commitment to sonic excellence.
-            </p>
-            <div className="grid grid-cols-3 gap-6 max-w-md mx-auto">
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-gradient mb-1">50+</div>
-                <div className="text-sm text-muted-foreground">Premium Brands</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-gradient mb-1">15+</div>
-                <div className="text-sm text-muted-foreground">Countries</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-gradient mb-1">400+</div>
-                <div className="text-sm text-muted-foreground">Products</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Brands */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Brands</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Our most prestigious partners representing the pinnacle of audio engineering
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredBrands.slice(0, 6).map((brand) => (
-              <Card key={brand.id} className="p-6 hover:shadow-lg transition-all duration-300 group">
-                <div className="text-center mb-6">
-                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Volume2 className="h-10 w-10 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{brand.name}</h3>
-                  <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-2">
-                    <MapPin className="h-3 w-3" />
-                    {brand.country}
-                    <Calendar className="h-3 w-3 ml-2" />
-                    Est. {brand.founded}
-                  </div>
-                  <div className="flex items-center justify-center gap-1 mb-3">
-                    <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-                    <span className="font-medium">{brand.rating}</span>
-                    <span className="text-sm text-muted-foreground">({brand.productCount} products)</span>
-                  </div>
-                  <Badge className={getPriceRangeColor(brand.priceRange)} variant="secondary">
-                    {brand.priceRange}
-                  </Badge>
-                </div>
-
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                  {brand.description}
-                </p>
-
-                <div className="mb-4">
-                  <h4 className="font-medium text-sm mb-2">Specialties:</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {brand.specialties.slice(0, 2).map((specialty, index) => (
-                      <Badge key={index} variant="outline" className="text-xs">
-                        {specialty}
-                      </Badge>
-                    ))}
-                    {brand.specialties.length > 2 && (
-                      <Badge variant="outline" className="text-xs">
-                        +{brand.specialties.length - 2} more
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-
-                <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  View Products
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* All Brands Section */}
       <section className="py-16">
@@ -377,102 +290,56 @@ const Brands = () => {
               {/* Brands Grid/List */}
               <div className={viewMode === "grid" ? "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6" : "space-y-6"}>
                 {filteredBrands.map((brand) => (
-                  <Card key={brand.id} className={`overflow-hidden hover:shadow-lg transition-all duration-300 group ${
-                    viewMode === "list" ? "flex" : ""
-                  }`}>
-                    {viewMode === "grid" ? (
-                      <>
-                        <div className="aspect-video relative overflow-hidden bg-muted/50">
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <Volume2 className="h-12 w-12 text-primary/50" />
-                          </div>
-                          <div className="absolute top-4 left-4">
-                            {brand.featured && (
-                              <Badge className="bg-primary text-primary-foreground">Featured</Badge>
-                            )}
-                          </div>
-                        </div>
+                  <Link key={brand.id} to={`/brands/${brand.slug}`}>
+                    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
+                      {/* Brand Image */}
+                      <div className="relative overflow-hidden h-48 bg-gradient-to-br from-muted/20 to-muted/5">
+                        <img
+                          src={brand.image}
+                          alt={`${brand.name} speakers`}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                        <div className="p-6">
-                          <div className="flex items-center justify-between mb-2">
-                            <h3 className="font-semibold text-lg">{brand.name}</h3>
-                            <div className="flex items-center gap-1">
-                              <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-                              <span className="text-sm">{brand.rating}</span>
-                            </div>
-                          </div>
-
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                            <MapPin className="h-3 w-3" />
-                            {brand.country}
-                            <span>•</span>
-                            <Calendar className="h-3 w-3" />
-                            {brand.founded}
-                          </div>
-
-                          <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                            {brand.description}
-                          </p>
-
-                          <div className="flex items-center justify-between mb-4">
-                            <Badge className={getPriceRangeColor(brand.priceRange)} variant="secondary">
-                              {brand.priceRange}
+                        {/* Brand Name Overlay */}
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <h3 className="text-white font-bold text-lg mb-1">
+                            {brand.name}
+                          </h3>
+                          <div className="flex items-center gap-2">
+                            <Badge variant="secondary" className="text-xs">
+                              {brand.country}
                             </Badge>
-                            <span className="text-sm text-muted-foreground">
-                              {brand.productCount} products
-                            </span>
+                            <Badge variant="outline" className="text-xs bg-white/20 border-white/30 text-white">
+                              Est. {brand.founded}
+                            </Badge>
                           </div>
-
-                          <Button variant="outline" className="w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            View Products
-                          </Button>
                         </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="w-32 h-32 bg-muted/50 flex items-center justify-center flex-shrink-0">
-                          <Volume2 className="h-8 w-8 text-primary/50" />
+                      </div>
+
+                      {/* Brand Information */}
+                      <div className="p-6 space-y-3">
+                        <div className="space-y-2">
+                          <h4 className="font-semibold text-sm text-primary">Specialty</h4>
+                          <p className="text-sm text-foreground leading-relaxed">
+                            {brand.specialties.join(", ")}
+                          </p>
                         </div>
 
-                        <div className="flex-1 p-6">
-                          <div className="flex items-start justify-between mb-2">
-                            <div>
-                              <h3 className="font-semibold text-lg mb-1">{brand.name}</h3>
-                              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                                <MapPin className="h-3 w-3" />
-                                {brand.country}
-                                <span>•</span>
-                                <Calendar className="h-3 w-3" />
-                                Est. {brand.founded}
-                              </div>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-                              <span className="text-sm">{brand.rating}</span>
-                            </div>
-                          </div>
-
-                          <p className="text-muted-foreground text-sm mb-3 line-clamp-2">
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground leading-relaxed">
                             {brand.description}
                           </p>
-
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <Badge className={getPriceRangeColor(brand.priceRange)} variant="secondary">
-                                {brand.priceRange}
-                              </Badge>
-                              {brand.featured && (
-                                <Badge className="bg-primary text-primary-foreground">Featured</Badge>
-                              )}
-                            </div>
-                            <Button variant="outline" size="sm">
-                              View Products
-                            </Button>
-                          </div>
                         </div>
-                      </>
-                    )}
-                  </Card>
+
+                        {/* Heritage Info */}
+                        <div className="pt-2 flex items-center justify-between text-xs text-muted-foreground border-t border-border">
+                          <span>Founded in {brand.founded}</span>
+                          <span>{brand.country}</span>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
                 ))}
               </div>
 

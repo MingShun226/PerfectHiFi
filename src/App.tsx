@@ -16,10 +16,14 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Brands from "./pages/Brands";
+import BrandDetail from "./pages/BrandDetail";
 import Services from "./pages/Services";
 import NewArrivals from "./pages/NewArrivals";
 import BestSellers from "./pages/BestSellers";
 import Promotions from "./pages/Promotions";
+import Clearance from "./pages/Clearance";
+import Solutions from "./pages/Solutions";
+import BookDemo from "./pages/BookDemo";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
@@ -37,6 +41,7 @@ const AppRoutes = () => {
         <Route path="/new-arrivals" element={<NewArrivals />} />
         <Route path="/best-sellers" element={<BestSellers />} />
         <Route path="/promotions" element={<Promotions />} />
+        <Route path="/clearance" element={<Clearance />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
@@ -44,7 +49,10 @@ const AppRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/brands" element={<Brands />} />
+        <Route path="/brands/:brandId" element={<BrandDetail />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/book-demo" element={<BookDemo />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

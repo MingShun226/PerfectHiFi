@@ -1,9 +1,44 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Play, Volume2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const showcaseProducts = [
+    {
+      image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&h=600&fit=crop",
+      name: "KEF Speakers",
+      category: "Premium Audio"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+      name: "Sonus Faber",
+      category: "Italian Excellence"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop",
+      name: "McIntosh Amplifier",
+      category: "American Classic"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=600&fit=crop",
+      name: "Premium Setup",
+      category: "Complete System"
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % showcaseProducts.length);
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [showcaseProducts.length]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-[95vh] flex items-center justify-center overflow-hidden">
       {/* Dynamic Background Layers */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-card/80" />
 
@@ -64,43 +99,101 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/40" />
 
       {/* Main content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-6xl mx-auto">
-        <div className="animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-tight">
-            <span className="text-gradient">Perfect</span>
-            <br />
-            <span className="text-foreground">Audio</span>
-          </h1>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Text content */}
+          <div className="animate-fade-in text-center lg:text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-tight">
+              <span className="text-gradient">Perfect</span>
+              <br />
+              <span className="text-foreground">Audio</span>
+            </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
-            Experience the ultimate in high-fidelity audio with our curated collection of premium speakers, amplifiers, and accessories.
-          </p>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
+              Experience the ultimate in high-fidelity audio with our curated collection of premium speakers, amplifiers, and accessories.
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12">
-            <Button size="lg" className="group px-6 sm:px-8 py-3 sm:py-4 text-base w-full sm:w-auto">
-              <Volume2 className="mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform" />
-              Explore Collection
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center mb-8 sm:mb-12">
+              <Button size="lg" className="group px-6 sm:px-8 py-3 sm:py-4 text-base w-full sm:w-auto" asChild>
+                <Link to="/products">
+                  <Volume2 className="mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform" />
+                  Explore Collection
+                </Link>
+              </Button>
 
-            <Button variant="outline" size="lg" className="px-6 sm:px-8 py-3 sm:py-4 text-base glass hover:bg-primary/10 w-full sm:w-auto">
-              <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-              Watch Demo
-            </Button>
+              <Button variant="outline" size="lg" className="px-6 sm:px-8 py-3 sm:py-4 text-base glass hover:bg-primary/10 w-full sm:w-auto" asChild>
+                <Link to="/book-demo">
+                  <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  Book Demo
+                </Link>
+              </Button>
+            </div>
+
+            {/* Stats - responsive grid */}
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-md mx-auto lg:mx-0">
+              <div className="text-center lg:text-left">
+                <div className="text-lg sm:text-xl font-bold text-gradient mb-1 sm:mb-2">50+</div>
+                <div className="text-muted-foreground text-xs sm:text-sm">Premium Brands</div>
+              </div>
+              <div className="text-center lg:text-left">
+                <div className="text-lg sm:text-xl font-bold text-gradient mb-1 sm:mb-2">1000+</div>
+                <div className="text-muted-foreground text-xs sm:text-sm">Happy Customers</div>
+              </div>
+              <div className="text-center lg:text-left">
+                <div className="text-lg sm:text-xl font-bold text-gradient mb-1 sm:mb-2">25+</div>
+                <div className="text-muted-foreground text-xs sm:text-sm">Years Experience</div>
+              </div>
+            </div>
           </div>
 
-          {/* Stats - responsive grid */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-lg sm:text-xl font-bold text-gradient mb-1 sm:mb-2">50+</div>
-              <div className="text-muted-foreground text-xs sm:text-sm lg:text-base">Premium Brands</div>
-            </div>
-            <div className="text-center">
-              <div className="text-lg sm:text-xl font-bold text-gradient mb-1 sm:mb-2">1000+</div>
-              <div className="text-muted-foreground text-xs sm:text-sm lg:text-base">Happy Customers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-lg sm:text-xl font-bold text-gradient mb-1 sm:mb-2">25+</div>
-              <div className="text-muted-foreground text-xs sm:text-sm lg:text-base">Years Experience</div>
+          {/* Right side - Auto-switching product showcase */}
+          <div className="hidden lg:block relative">
+            <div className="relative h-[500px] rounded-3xl overflow-hidden">
+              {/* Background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl" />
+
+              {/* Image slider */}
+              {showcaseProducts.map((product, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                    index === currentImageIndex
+                      ? "opacity-100 scale-100"
+                      : "opacity-0 scale-95"
+                  }`}
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-3xl" />
+
+                  {/* Product label */}
+                  <div className="absolute bottom-6 left-6 z-20 bg-background/90 backdrop-blur-md px-6 py-3 rounded-xl shadow-xl">
+                    <p className="text-base font-bold">{product.name}</p>
+                    <p className="text-sm text-muted-foreground">{product.category}</p>
+                  </div>
+                </div>
+              ))}
+
+              {/* Indicator dots */}
+              <div className="absolute bottom-6 right-6 z-20 flex gap-2">
+                {showcaseProducts.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex
+                        ? "bg-primary w-8"
+                        : "bg-white/50 hover:bg-white/80"
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

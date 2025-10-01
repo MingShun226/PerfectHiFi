@@ -66,36 +66,6 @@ const Promotions = () => {
         </div>
       </section>
 
-      {/* Special Offers Banner */}
-      <section className="py-8 bg-gradient-to-r from-red-500 to-pink-500 text-white">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div>
-              <h2 className="text-2xl font-bold mb-2">🔥 Flash Sale Alert!</h2>
-              <p className="text-red-100">Limited time offer - Save up to RM 3,000 on selected premium speakers</p>
-            </div>
-            <div className="mt-4 md:mt-0">
-              <div className="flex items-center gap-4 text-center">
-                <div>
-                  <div className="text-2xl font-bold">23</div>
-                  <div className="text-xs text-red-100">HOURS</div>
-                </div>
-                <div className="text-2xl">:</div>
-                <div>
-                  <div className="text-2xl font-bold">45</div>
-                  <div className="text-xs text-red-100">MINS</div>
-                </div>
-                <div className="text-2xl">:</div>
-                <div>
-                  <div className="text-2xl font-bold">12</div>
-                  <div className="text-xs text-red-100">SECS</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Promotion Products */}
       <section className="py-16">
         <div className="container mx-auto px-6">

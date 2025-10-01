@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Users, Clock, Headphones } from "lucide-react";
 
@@ -63,11 +64,15 @@ const AboutSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="">
-                Our Story
+              <Button size="lg" asChild>
+                <Link to="/about">
+                  Our Story
+                </Link>
               </Button>
-              <Button variant="outline" size="lg" className="glass hover:bg-primary/10">
-                Visit Showroom
+              <Button variant="outline" size="lg" className="glass hover:bg-primary/10" asChild>
+                <Link to="/contact">
+                  Visit Showroom
+                </Link>
               </Button>
             </div>
           </div>

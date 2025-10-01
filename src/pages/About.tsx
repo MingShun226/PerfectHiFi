@@ -87,13 +87,36 @@ const About = () => {
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* Story Section with Image */}
       <section className="py-16">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl transform group-hover:scale-105 transition-transform duration-500" />
+              <img
+                src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=600&fit=crop"
+                alt="Premium audio showroom"
+                className="rounded-3xl shadow-2xl relative z-10 w-full h-[500px] object-cover"
+              />
+              <div className="absolute -bottom-6 -right-6 z-20">
+                <Card className="p-6 glass backdrop-blur-xl shadow-2xl">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-primary rounded-xl">
+                      <Award className="h-6 w-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-gradient">25+</div>
+                      <div className="text-sm text-muted-foreground">Years Excellence</div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            </div>
+
             <div>
+              <Badge className="mb-4 bg-primary/10 text-primary">Our Story</Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Who Are We?</h2>
-              <div className="space-y-4 text-muted-foreground">
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   From its inception, Perfect HiFi has worked at providing reliable service and
                   professional consultation, complimented by our policy of providing only reputable
@@ -113,32 +136,28 @@ const About = () => {
                   creative lifestyle.
                 </p>
               </div>
-              <Button className="mt-6" size="lg">
-                <Volume2 className="mr-2 h-4 w-4" />
-                Experience Our Showroom
-              </Button>
-            </div>
-            <div className="relative">
-              <Card className="p-8 glass">
-                <div className="grid grid-cols-2 gap-6 text-center">
-                  <div>
-                    <div className="text-3xl font-bold text-gradient mb-2">1000+</div>
-                    <div className="text-sm text-muted-foreground">Happy Customers</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-gradient mb-2">50+</div>
-                    <div className="text-sm text-muted-foreground">Premium Brands</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-gradient mb-2">25+</div>
-                    <div className="text-sm text-muted-foreground">Years Experience</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-gradient mb-2">3</div>
-                    <div className="text-sm text-muted-foreground">Showroom Locations</div>
-                  </div>
+
+              <div className="grid grid-cols-3 gap-4 mt-8">
+                <div className="text-center p-4 bg-primary/5 rounded-xl">
+                  <div className="text-2xl font-bold text-gradient mb-1">1000+</div>
+                  <div className="text-xs text-muted-foreground">Customers</div>
                 </div>
-              </Card>
+                <div className="text-center p-4 bg-primary/5 rounded-xl">
+                  <div className="text-2xl font-bold text-gradient mb-1">50+</div>
+                  <div className="text-xs text-muted-foreground">Brands</div>
+                </div>
+                <div className="text-center p-4 bg-primary/5 rounded-xl">
+                  <div className="text-2xl font-bold text-gradient mb-1">3</div>
+                  <div className="text-xs text-muted-foreground">Showrooms</div>
+                </div>
+              </div>
+
+              <Button className="mt-6" size="lg" asChild>
+                <Link to="/contact">
+                  <Volume2 className="mr-2 h-4 w-4" />
+                  Experience Our Showroom
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -148,7 +167,8 @@ const About = () => {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
+            <Badge className="mb-4 bg-primary/10 text-primary">Our Values</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Drives Us</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               The principles that guide everything we do at Perfect Hi-Fi
             </p>
@@ -156,12 +176,12 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-lg transition-all duration-300 group">
-                <div className="p-3 bg-primary/10 rounded-lg inline-flex mb-4 group-hover:bg-primary/20 transition-colors">
-                  <value.icon className="h-6 w-6 text-primary" />
+              <Card key={index} className="p-6 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group border-2 border-transparent hover:border-primary/20">
+                <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl inline-flex mb-4 group-hover:scale-110 group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300">
+                  <value.icon className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg mb-3">{value.title}</h3>
-                <p className="text-muted-foreground text-sm">{value.description}</p>
+                <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">{value.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
               </Card>
             ))}
           </div>
@@ -330,42 +350,66 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline Section */}
+      {/* Timeline Section with Image */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Journey</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Key milestones in our commitment to audio excellence
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="mb-4 bg-primary/10 text-primary">Our Journey</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">25+ Years of Excellence</h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                Key milestones in our commitment to audio excellence
+              </p>
 
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-8">
-              {milestones.map((milestone, index) => (
-                <div key={index} className="flex gap-6 group">
-                  <div className="flex flex-col items-center">
-                    <div className="w-4 h-4 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300" />
-                    {index < milestones.length - 1 && (
-                      <div className="w-0.5 h-16 bg-primary/30 mt-2" />
-                    )}
+              <div className="space-y-6">
+                {milestones.map((milestone, index) => (
+                  <div key={index} className="flex gap-4 group hover:bg-primary/5 p-4 rounded-xl transition-all duration-300">
+                    <div className="flex flex-col items-center">
+                      <div className="w-3 h-3 bg-primary rounded-full group-hover:scale-150 transition-transform duration-300 mt-1" />
+                      {index < milestones.length - 1 && (
+                        <div className="w-0.5 flex-1 bg-primary/20 mt-2" />
+                      )}
+                    </div>
+                    <div className="flex-1 pb-2">
+                      <div className="text-xl font-bold text-primary mb-1">{milestone.year}</div>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{milestone.event}</p>
+                    </div>
                   </div>
-                  <div className="flex-1 pb-8">
-                    <div className="text-2xl font-bold text-primary mb-2">{milestone.year}</div>
-                    <p className="text-muted-foreground">{milestone.event}</p>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-tl from-primary/20 to-primary/5 rounded-3xl transform group-hover:scale-105 transition-transform duration-500" />
+              <img
+                src="https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&h=600&fit=crop"
+                alt="Audio equipment showcase"
+                className="rounded-3xl shadow-2xl relative z-10 w-full h-[600px] object-cover"
+              />
+              <div className="absolute -top-6 -left-6 z-20">
+                <Card className="p-6 glass backdrop-blur-xl shadow-2xl">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-primary rounded-xl">
+                      <Star className="h-6 w-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-gradient">1000+</div>
+                      <div className="text-sm text-muted-foreground">Happy Customers</div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                </Card>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-16">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Comprehensive Services</h2>
+            <Badge className="mb-4 bg-primary/10 text-primary">Our Services</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Comprehensive Solutions</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Our business has changed dramatically around and over the years, reflecting the changes
               in technology and the needs and desires of our clients.
@@ -373,50 +417,62 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
-              <Volume2 className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold text-lg mb-3">Product Consultation</h3>
-              <p className="text-muted-foreground text-sm">
+            <Card className="p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group border-2 border-transparent hover:border-primary/20">
+              <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl inline-flex mb-4 group-hover:scale-110 transition-all duration-300">
+                <Volume2 className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Product Consultation</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Expert guidance to help you choose the perfect audio system for your needs and budget.
               </p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
-              <Wrench className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold text-lg mb-3">System Installation & Maintenance</h3>
-              <p className="text-muted-foreground text-sm">
+            <Card className="p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group border-2 border-transparent hover:border-primary/20">
+              <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl inline-flex mb-4 group-hover:scale-110 transition-all duration-300">
+                <Wrench className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">System Installation & Maintenance</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Professional installation and ongoing maintenance services for optimal performance.
               </p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
-              <Home className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold text-lg mb-3">Dedicated Room Design & Construction</h3>
-              <p className="text-muted-foreground text-sm">
+            <Card className="p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group border-2 border-transparent hover:border-primary/20">
+              <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl inline-flex mb-4 group-hover:scale-110 transition-all duration-300">
+                <Home className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Dedicated Room Design & Construction</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Custom-designed listening rooms and home theaters for the ultimate audio experience.
               </p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
-              <Lightbulb className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold text-lg mb-3">Interior & Acoustic Design</h3>
-              <p className="text-muted-foreground text-sm">
+            <Card className="p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group border-2 border-transparent hover:border-primary/20">
+              <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl inline-flex mb-4 group-hover:scale-110 transition-all duration-300">
+                <Lightbulb className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Interior & Acoustic Design</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Professional acoustic consultation to optimize your space for perfect sound reproduction.
               </p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
-              <Settings className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold text-lg mb-3">Residential Automation</h3>
-              <p className="text-muted-foreground text-sm">
+            <Card className="p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group border-2 border-transparent hover:border-primary/20">
+              <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl inline-flex mb-4 group-hover:scale-110 transition-all duration-300">
+                <Settings className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Residential Automation</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Smart home integration and automation solutions for modern living.
               </p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
-              <Users className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold text-lg mb-3">Residential Networking</h3>
-              <p className="text-muted-foreground text-sm">
+            <Card className="p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group border-2 border-transparent hover:border-primary/20">
+              <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl inline-flex mb-4 group-hover:scale-110 transition-all duration-300">
+                <Users className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Residential Networking</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Complete networking solutions to support your digital audio and video systems.
               </p>
             </Card>
@@ -425,7 +481,7 @@ const About = () => {
       </section>
 
       {/* Location Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Visit Our Showrooms</h2>

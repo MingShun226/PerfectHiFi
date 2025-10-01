@@ -12,7 +12,7 @@ import { Search, Filter, Grid, List } from "lucide-react";
 const categories = [
   "All Products",
   "Bookshelf Speaker",
-  "Floorstanding Speakers", 
+  "Floorstanding Speakers",
   "Center Speakers",
   "Surround Speakers",
   "Ceiling Speakers",
@@ -28,7 +28,27 @@ const categories = [
   "Earphones"
 ];
 
-
+// Map URL parameters to category names
+const categoryMap: Record<string, string> = {
+  "portable": "Wireless Speakers",
+  "wireless": "Wireless Speakers",
+  "bookshelf": "Bookshelf Speaker",
+  "floorstanding": "Floorstanding Speakers",
+  "cables-all": "All Products",
+  "speaker-cables": "All Products",
+  "analogue": "All Products",
+  "digital": "All Products",
+  "power": "All Products",
+  "amplifiers": "Integrated Amplifier",
+  "cd-players": "Network Player / Streamer",
+  "streamers": "Network Player / Streamer",
+  "subwoofers": "Subwoofer",
+  "power-conditioners": "All Products",
+  "dacs": "Network Player / Streamer",
+  "projectors": "All Products",
+  "led-walls": "All Products",
+  "av-furniture": "All Products",
+};
 
 const Products = () => {
   const [searchParams] = useSearchParams();
@@ -36,12 +56,16 @@ const Products = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [sortBy, setSortBy] = useState("name");
-  const [activeSection, setActiveSection] = useState<string>("all");
 
   useEffect(() => {
-    const categoryParam = searchParams.get('category');
-    if (categoryParam) {
-      setActiveSection(categoryParam);
+    const catParam = searchParams.get('cat');
+    const brandParam = searchParams.get('brand');
+
+    if (catParam && categoryMap[catParam]) {
+      setSelectedCategory(categoryMap[catParam]);
+    } else if (brandParam) {
+      // Handle brand filtering if needed
+      setSelectedCategory("All Products");
     }
   }, [searchParams]);
 
@@ -78,10 +102,13 @@ const Products = () => {
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
-              Premium Audio Products
+              {selectedCategory === "All Products" ? "Premium Audio Products" : selectedCategory}
             </h1>
             <p className="text-xl text-muted-foreground">
-              Discover our curated collection of high-end audio equipment
+              {selectedCategory === "All Products"
+                ? "Discover our curated collection of high-end audio equipment"
+                : `Browse our selection of premium ${selectedCategory.toLowerCase()}`
+              }
             </p>
           </div>
         </div>
